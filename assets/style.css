@@ -15,7 +15,9 @@ header {
     background-color: lightgray;
 }
 
-
+.input-width {
+    width: 80%!important;
+}
 
 .sidebar {
     padding: 10px;
