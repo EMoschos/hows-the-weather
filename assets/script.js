@@ -1,61 +1,51 @@
-//New JS file
 // var apiKey = "125e5091a0b746d9a25859114793888d"
-
 
 //Search button click
 var srcBtn = $("#srcBtn");
 srcBtn.on("click", function () {
     event.preventDefault();
+
     var userSearch = $(this).prev().val().trim();
-    console.log(userSearch);
-    // weatherURL = weatherURL + userSearch;
-    console.log("Clicked");
+
+    //Function for API CALL
+    weatherCall(userSearch)
 
     var li = $("<li>")
     li.addClass("list-group-item")
     li.text(userSearch)
     $(".list-group").prepend(li)
+    console.log(weatherData)
 
-    //Function for API CALL
-    weatherCall(userSearch)
 });
 
 //History search click
-$(".list-group").on("click", ".list-group-item", function(){
+$(".list-group").on("click", ".list-group-item", function () {
     event.preventDefault();
     var histSearch = $(this).text();
-    console.log(histSearch)
 
     weatherCall(histSearch)
 })
 
-
 // This function is used to CALL the AJAX JSON
 function weatherCall(search) {
-
     var weatherURL = "https://api.weatherbit.io/v2.0/forecast/daily?key=125e5091a0b746d9a25859114793888d&days=6&country=au&city=" + search;
-    console.log(weatherURL)
 
     // Weatherbit.io AJAX Call
     $.ajax({
         url: weatherURL,
         method: "GET"
     }).then(function (weatherData) {
-        
         console.log(weatherData)
-        
+
         //Get City Name and Date
         var cityName = weatherData.city_name;
         var currentDate = (weatherData.data[0].datetime);
-        console.log(currentDate);
         $("#cityMain").text(cityName + " " + "(" + currentDate + ")");
 
         //Weather Icon - Icons stored in repo as "weatherbit.io" did not have URL links.
         var iconID = weatherData.data[0].weather.icon;
-        console.log(iconID);
         var weatherIcon = "./assets/icons/" + iconID + ".png";
         $("#iconMain").attr("src", weatherIcon);
-        console.log(weatherIcon);
 
         //Current day main display
         $("#tempMain").text("Temperature: " + weatherData.data[0].max_temp + "\u2103");
