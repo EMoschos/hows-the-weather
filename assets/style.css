@@ -38,3 +38,12 @@ header {
     border-radius: 5px;
     border-color: rgb(23, 23, 151);
 }
+
+/* #iconMain {
+    float: inline-end;
+} */
+
+img {
+    height: 30px;
+    width: 30px
+}

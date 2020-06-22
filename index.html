@@ -15,7 +15,7 @@
 
 <body>
     <header>
-        <h1>Weather Dashboard</h1>
+        <h1>Australian Weather Dashboard</h1>
     </header>
     <div class="container-fluid">
         <div class="row">
@@ -25,81 +25,86 @@
                 </h2>
                 <form class="form-inline">
                     <input class="form-control input-width" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-primary my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+                    <button id="srcBtn" class="btn btn-primary my-2 my-sm-0" type="submit"><i
+                            class="fas fa-search"></i></button>
                 </form>
+                <h2 class="search-title">
+                    Saved searches:
+                </h2>
                 <ul class="list-group">
-                    <h2 class="search-title">
-                        Saved Cities:
-                    </h2>
-                    <!-- change active class when selected -->
-                    <li class="list-group-item active"></li>
-                    <li class="list-group-item"></li>
+                    <!-- List of saved searches -->
                 </ul>
             </div>
             <div class="col-9">
                 <div class="row">
                     <div class="col my-3">
                         <div class="text-white bg-primary display-weather">
-                            <div class="ml-3">
-                                <h3>City and Date</h3>
-                                <p>Temp</p>
-                                <p>Humidity</p>
-                                <p>Wind Speed</p>
-                                <p>UV Index</p>
+                            <div class="ml-3">      
+                                    <h3><span id="cityMain">City & Date</span><img id="iconMain" width="40px" height="40px" src=""></h3>
+                                <p id="tempMain">Temp:&#8451;</p>
+                                <p id="humdMain">Humidity:</p>
+                                <p id="wsMain">Wind Speed:</p>
+                                <p id="uvMain">UV Index:</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <h4 class="weather-area">5-Day Forecast:</h4>
                 <div class="row row-cols-1 row-cols-lg-5">
+                    <!-- CARD #1 - Forecast day 1 -->
                     <div class="col mb-3">
                         <div class="card text-white bg-info">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Weather Icon</p>
-                                <p class="card-text">Temp</p>
-                                <p class="card-text">Humidity</p>
+                            <div id="cardBody1" class="card-body">
+                                <h5 class="card-title" id="date1">Date</h5>
+                                <img id="icon1" src="" alt="weather Icon">
+                                <!-- <p class="card-text" >Weather Icon</p> -->
+                                <p class="card-text" id="temp1">Temp</p>
+                                <p class="card-text" id="humd1">Humidity</p>
                             </div>
                         </div>
                     </div>
+                    <!-- CARD #2 - Forecast day 2 -->
                     <div class="col mb-3">
                         <div class="card text-white bg-info">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Weather Icon</p>
-                                <p class="card-text">Temp</p>
-                                <p class="card-text">Humidity</p>
+                            <div id="cardBody2" class="card-body">
+                                <h5 class="card-title" id="date2" >Date</h5>
+                                <img id="icon2" src="" alt="weather Icon">
+                                <p class="card-text" id="temp2">Temp</p>
+                                <p class="card-text" id="humd2">Humidity</p>
 
                             </div>
                         </div>
                     </div>
+                    <!-- CARD #3 - Forecast day 3 -->
                     <div class="col mb-3">
                         <div class="card text-white bg-info">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Weather Icon</p>
-                                <p class="card-text">Temp</p>
-                                <p class="card-text">Humidity</p>
+                            <div id="cardBody3" class="card-body">
+                                <h5 class="card-title" id="date3">Date</h5>
+                                <img id="icon3" src="" alt="weather Icon">
+                                <p class="card-text" id="temp3">Temp</p>
+                                <p class="card-text" id="humd3">Humidity</p>
                             </div>
                         </div>
                     </div>
+                    <!-- CARD #4 - Forecast day 4 -->
                     <div class="col mb-3">
                         <div class="card text-white bg-info">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Weather Icon</p>
-                                <p class="card-text">Temp</p>
-                                <p class="card-text">Humidity</p>
+                            <div id="cardBody4" class="card-body">
+                                <h5 class="card-title" id="date4">Date</h5>
+                                <img id="icon4" src="" alt="weather Icon">
+                                <p class="card-text" id="temp4">Temp</p>
+                                <p class="card-text" id="humd4">Humidity</p>
                             </div>
                         </div>
                     </div>
+                    <!-- CARD #5 - Forecast day 5 -->
                     <div class="col mb-3">
                         <div class="card text-white bg-info">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Weather Icon</p>
-                                <p class="card-text">Temp</p>
-                                <p class="card-text">Humidity</p>
+                            <div id="cardBody5" class="card-body">
+                                <h5 class="card-title" id="date5">Date</h5>
+                                <img id="icon5" src="" alt="weather Icon">
+                                <p class="card-text" id="temp5">Temp</p>
+                                <p class="card-text" id="humd5">Humidity</p>
                             </div>
                         </div>
                     </div>
