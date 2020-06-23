@@ -2,18 +2,10 @@
 lastSearched();
 function lastSearched() {
     var lastSearch = localStorage.getItem("lastSearch")
-    var weatherURL = "https://api.weatherbit.io/v2.0/forecast/daily?key=125e5091a0b746d9a25859114793888d&days=6&country=au&city=" + lastSearch
     console.log(lastSearch)
-
     // Weatherbit.io AJAX Call
-    $.ajax({
-        url: weatherURL,
-        method: "GET"
-    }).then(function (weatherData) {
-        console.log(weatherData)
-        displayWeather(weatherData);
-        searchList(weatherData.city_name);
-    })
+    callAPI(lastSearch)
+    searchList(lastSearch);
 };
 
 //Search button click displays the current day and 5 day forecast from the user search input
@@ -22,22 +14,15 @@ srcBtn.on("click", function () {
     event.preventDefault();
     userSearch = $(this).prev().val().trim();
     console.log(userSearch);
-    var weatherURL = "https://api.weatherbit.io/v2.0/forecast/daily?key=125e5091a0b746d9a25859114793888d&days=6&country=au&city=" + userSearch
 
-    // Weatherbit.io AJAX Call
-    $.ajax({
-        url: weatherURL,
-        method: "GET"
-    }).then(function (weatherData) {
-        console.log(weatherData)
-        if (weatherData) {
-            displayWeather(weatherData);
-            searchList(weatherData.city_name)
-        };
-        if (typeof (weatherData) === "undefined") {
-            alert("Invalid search  - City spelling incorrect or not a city in database")
-        }
-    })
+    console.log(callAPI(userSearch))
+    if (weatherData) {
+        searchList(weatherData.city_name)
+    };
+    if (typeof (weatherData) === "undefined") {
+        alert("Invalid search  - City spelling incorrect or not a city in database")
+    }
+
 });
 
 //Function to add searches to the list and save the last search to local storage
@@ -53,18 +38,27 @@ function searchList(search) {
 $(".list-group").on("click", ".list-group-item", function () {
     event.preventDefault();
     var histSearch = $(this).text();
-    var weatherURL = "https://api.weatherbit.io/v2.0/forecast/daily?key=125e5091a0b746d9a25859114793888d&days=6&country=au&city=" + histSearch
+    callAPI(histSearch)
     console.log(histSearch)
+})
 
+function callAPI(city) {
+    var weatherURL = "https://api.weatherbit.io/v2.0/forecast/daily?key=125e5091a0b746d9a25859114793888d&days=6&country=au&city=" + city
+    
     // Weatherbit.io AJAX Call
-    $.ajax({
+    return $.ajax({
         url: weatherURL,
-        method: "GET"
-    }).then(function (weatherData) {
-        console.log(weatherData)
-        displayWeather(weatherData);
+        method: "GET",
+        async: false,
+        success: function (data) {
+        }
     })
-});
+
+    // .then(function (weatherData) {
+    //     console.log(weatherData)
+    //     displayWeather(weatherData);
+    // })
+}
 
 //Function to display the weather from a searched or history listed city name.
 function displayWeather(weatherData) {
