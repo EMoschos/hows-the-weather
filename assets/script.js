@@ -88,6 +88,7 @@ srcBtn.on("click", function () {
     event.preventDefault();
     var userSearch = $(this).prev().val().trim();
 
+    //Wanted to return the city name value from the ajax call and "not" the userSearch so that the correct spelling was shown on the list 
     callAPI(userSearch).done(function (result) {
         if (result) {
             $("li:contains(" + result.city_name + ")").each(function () {

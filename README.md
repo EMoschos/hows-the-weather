@@ -1,46 +1,27 @@
-# 06 Server-Side APIs: Weather Dashboard
+# Hows The Weather App
+The Hows the weather app was built to show current day weather and a 5 day forecast but only for Australian Cities.
 
-Developers are often tasked with retrieving data from another application's API and using it in the context of their own. Third-party APIs allow developers to access their data and functionality by making requests with specific parameters to a URL. Your challenge is to build a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS.
+App Link - https://emoschos.github.io/hows-the-weather/
 
-Use the [OpenWeather API](https://openweathermap.org/api) to retrieve weather data for cities. The documentation includes a section called "How to start" that will provide basic setup and usage instructions. Use `localStorage` to store any persistent data.
+I chose to use weatherbit.io instead of openweather to complete this task and the app satisfies all the acceptance criteria.
 
-## User Story
+## Structure
+### HTML:
+I tried to build as much of the static structure of the app in HTML such as the main display and cards with h-tags and p-tags.  This help reduce any potential JS bugs into the code.
 
-```
-AS A traveler
-I WANT to see the weather outlook for multiple cities
-SO THAT I can plan a trip accordingly
-```
+### CSS:
+Bootstrap was utilised to make the app responsive.  Some additional custom classes and styling was included so that i could see what the styling was and what it was affecting.
 
-## Acceptance Criteria
+### JS/JQuery:
+JQuery was utilised in the building of the app.  I created a scriptV1.js so that i could have a functioning app that could be deployed.  I went on further to refactor and add functions that polished the app to make it better for the user which became my final script.js (V2).  Theres commenting in the JS file that goes into detail of the structure created.
 
-```
-GIVEN a weather dashboard with form inputs
-WHEN I search for a city
-THEN I am presented with current and future conditions for that city and that city is added to the search history
-WHEN I view current weather conditions for that city
-THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
-WHEN I view the UV index
-THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
-WHEN I view future weather conditions for that city
-THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity
-WHEN I click on a city in the search history
-THEN I am again presented with current and future conditions for that city
-WHEN I open the weather dashboard
-THEN I am presented with the last searched city forecast
-```
+## Functionality:
+When a user first opens the app there will be no weather information, only place holders for the first search.
+When a user enters an Australian city name and it is validated, then the app will retrieve the data and populate the main display with current day and the 5 day forecast will populate the 5 forecast cards and the city will be added to the list with correct spelling and format.  In some case depending on the typo the app will return the city with the correct spelling and will add it to the list but if it does not recognise the spelling then it will alert the user.  Similarly if a city from another country is added it will alert that it is not in the database.
+If the user has already completed a successful search and enters the same name in the search again.  The app will not duplicate the city name on the list but instead hoist that city to the top of the saved searches listing.
+If a user clicks on a saved search listing then the data will populate the displays and it will be hoisted to the top of the listing
+When the user closes or refreshes the browser then the last searched listing (the city at the top of the listing) will appear in the weather displays and also on the saved search listings.
 
-The following image demonstrates the application functionality:
+## Result:
 
-![weather dashboard demo](./Assets/06-server-side-apis-homework-demo.png)
-
-## Review
-
-You are required to submit the following for review:
-
-* The URL of the deployed application.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+![Australian weather dashboard](./assets/AU-weather-app.PNG)
