@@ -24,23 +24,26 @@
                     Search for a City:
                 </h2>
                 <form class="form-inline">
-                    <input class="form-control input-search" type="search" placeholder="City/Town i.e. Sydney" aria-label="Search">
+                    <!-- City name search input -->
+                    <input class="form-control input-search" type="search" placeholder="City/Town i.e. Sydney"
+                        aria-label="Search">
                     <button id="srcBtn" class="btn btn-primary my-2 my-sm-0" type="submit"><i
                             class="fas fa-search"></i></button>
                 </form>
                 <h2 class="saved-searches">
                     Saved searches:
                 </h2>
+                <!-- List of saved searches -->
                 <ul class="list-group">
-                    <!-- List of saved searches -->
                 </ul>
             </div>
             <div class="col-9">
                 <div class="row">
+                    <!-- Current day weather main display -->
                     <div class="col my-3">
                         <div class="text-white bg-primary display-weather">
-                            <div class="ml-3">      
-                                    <h3><span id="cityMain">City and Date </span><img id="iconMain" src=""></h3>
+                            <div class="ml-3">
+                                <h3><span id="cityMain">City and Date </span><img id="iconMain" src=""></h3>
                                 <p id="tempMain">Temp:&#8451;</p>
                                 <p id="humdMain">Humidity:</p>
                                 <p id="wsMain">Wind Speed:</p>
@@ -67,7 +70,7 @@
                     <div class="col mb-3">
                         <div class="card text-white bg-info">
                             <div id="cardBody2" class="card-body">
-                                <h5 class="card-title" id="date2" >Date</h5>
+                                <h5 class="card-title" id="date2">Date</h5>
                                 <img id="icon2" src="" alt="weather Icon">
                                 <p class="card-text" id="temp2">Temp</p>
                                 <p class="card-text" id="humd2">Humidity</p>
