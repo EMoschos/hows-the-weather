@@ -75,6 +75,9 @@ function lastSearched() {
     var lastSearch = localStorage.getItem("lastSearch");
     console.log(lastSearch);
 
+    if (lastSearch === null) {
+        return;
+    };
     callAPI(lastSearch).done(function (result) {
         console.log(result);
         searchList(lastSearch);
