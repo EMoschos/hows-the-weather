@@ -30,7 +30,8 @@ $(document).ready(function () {
         var cityName = weatherData.city_name;
         var countryID = weatherData.country_code;
         var currentDate = (weatherData.data[0].datetime);
-        $("#cityMain").text(cityName + ", " + countryID + " (" + currentDate + ")");
+        var cityCountrySrc = cityName + ", " + countryID
+        $("#cityMain").text(cityCountrySrc + " (" + currentDate + ")");
 
         //Weather Icon - Icons stored in repo as "weatherbit.io" did not have URL links.
         var iconID = weatherData.data[0].weather.icon;
@@ -96,13 +97,14 @@ $(document).ready(function () {
 
         //Wanted to return the city name value from the ajax call and "not" the userSearch so that the correct spelling was shown on the list 
         callAPI(userSearch).then(function (result) {
+            var cityCountryUserSrc = result.city_name + ", " + result.country_code;
             if (result) {
-                $("li:contains(" + result.city_name + ")").each(function () {
+                $("li:contains(" + cityCountryUserSrc + ")").each(function () {
                     $(this).remove();
                 });
                 console.log(result);
                 displayWeather(result);
-                searchList(result.city_name);
+                searchList(cityCountryUserSrc);
             };
             if (typeof (result) === "undefined") {
                 alert("Invalid search  - City spelling incorrect or not a city in database")
@@ -116,10 +118,11 @@ $(document).ready(function () {
         var histSearch = $(this).text();
         $(this).remove();
         callAPI(histSearch).done(function (result) {
+            var historyUserSrc = result.city_name + ", " + result.country_code;
             console.log(result);
-            console.log(result.city_name);
+            console.log(historyUserSrc);
             displayWeather(result);
-            searchList(result.city_name);
+            searchList(historyUserSrc);
         });
     });
 });
