@@ -97,8 +97,8 @@ $(document).ready(function () {
 
         //Wanted to return the city name value from the ajax call and "not" the userSearch so that the correct spelling was shown on the list 
         callAPI(userSearch).then(function (result) {
-            var cityCountryUserSrc = result.city_name + ", " + result.country_code;
             if (result) {
+                var cityCountryUserSrc = result.city_name + ", " + result.country_code;
                 $("li:contains(" + cityCountryUserSrc + ")").each(function () {
                     $(this).remove();
                 });
