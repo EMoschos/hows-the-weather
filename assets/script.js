@@ -105,12 +105,14 @@ $(document).ready(function () {
                 console.log(result);
                 displayWeather(result);
                 searchList(cityCountryUserSrc);
-            };
-            if (typeof (result) === "undefined") {
+            } 
+            else {
                 alert("Invalid search  - City spelling incorrect or not a city in database")
             }
         })
     });
+
+    // if (typeof (result) === "undefined")
 
     //History search click - Does not need Validation because it is performed in the search function
     $(".list-group").on("click", ".list-group-item", function () {
