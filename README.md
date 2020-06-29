@@ -1,5 +1,5 @@
 # Hows The Weather App
-The Hows the weather app was built to show current day weather and a 5 day forecast but only for Australian Cities.
+The Hows the weather app was built to show current day weather and a 5 day forecast.
 
 App Link - https://emoschos.github.io/hows-the-weather/
 
@@ -17,11 +17,11 @@ JQuery was utilised in the building of the app.  I created a scriptV1.js so that
 
 ## Functionality:
 When a user first opens the app there will be no weather information, only place holders for the first search.
-When a user enters an Australian city name and it is validated, then the app will retrieve the data and populate the main display with current day and the 5 day forecast will populate the 5 forecast cards and the city will be added to the list with correct spelling and format.  In some case depending on the typo the app will return the city with the correct spelling and will add it to the list but if it does not recognise the spelling then it will alert the user.  Similarly if a city from another country is added it will alert that it is not in the database.
+When a user enters an Australian city name and it is validated, then the app will retrieve the data and populate the main display with current day and the 5 day forecast will populate the 5 forecast cards and the city will be added to the list with correct spelling and format.  In some case depending on the typo the app will return the city with the correct spelling and will add it to the list but if it does not recognise the spelling then it will alert the user.
 If the user has already completed a successful search and enters the same name in the search again.  The app will not duplicate the city name on the list but instead hoist that city to the top of the saved searches listing.
 If a user clicks on a saved search listing then the data will populate the displays and it will be hoisted to the top of the listing
 When the user closes or refreshes the browser then the last searched listing (the city at the top of the listing) will appear in the weather displays and also on the saved search listings.
 
 ## Result:
 
-![Australian weather dashboard](./assets/AU-weather-app.PNG)
+![World weather dashboard](./assets/AU-weather-app.PNG)

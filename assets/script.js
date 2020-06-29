@@ -5,7 +5,7 @@ $(document).ready(function () {
 
     // Weatherbit.io AJAX Call - Return AJAX object
     function callAPI(city) {
-        var weatherURL = "https://api.weatherbit.io/v2.0/forecast/daily?key=125e5091a0b746d9a25859114793888d&days=6&country=au&city=" + city
+        var weatherURL = "https://api.weatherbit.io/v2.0/forecast/daily?key=125e5091a0b746d9a25859114793888d&days=6&city=" + city
         return $.ajax({
             url: weatherURL,
             method: "GET",
@@ -28,8 +28,9 @@ $(document).ready(function () {
 
         //Get City Name and Date
         var cityName = weatherData.city_name;
+        var countryID = weatherData.country_code;
         var currentDate = (weatherData.data[0].datetime);
-        $("#cityMain").text(cityName + " " + "(" + currentDate + ")");
+        $("#cityMain").text(cityName + ", " + countryID + " (" + currentDate + ")");
 
         //Weather Icon - Icons stored in repo as "weatherbit.io" did not have URL links.
         var iconID = weatherData.data[0].weather.icon;
@@ -94,7 +95,7 @@ $(document).ready(function () {
         var userSearch = $(this).prev().val().trim();
 
         //Wanted to return the city name value from the ajax call and "not" the userSearch so that the correct spelling was shown on the list 
-        callAPI(userSearch).done(function (result) {
+        callAPI(userSearch).then(function (result) {
             if (result) {
                 $("li:contains(" + result.city_name + ")").each(function () {
                     $(this).remove();
